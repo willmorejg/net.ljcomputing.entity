@@ -9,28 +9,36 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
+	// net.ljcomputing.repository.BaseRepository<T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable>
+	c81 [label=<<table title="net.ljcomputing.repository.BaseRepository" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../repository/BaseRepository.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
+<tr><td align="center" balign="center"> BaseRepository&lt;T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable&gt; </td></tr>
+<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.repository </font></td></tr>
+		</table></td></tr>
+		</table>>, URL="../repository/BaseRepository.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.entity.AbstractPersistedEntity
-	c51 [label=<<table title="net.ljcomputing.entity.AbstractPersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractPersistedEntity.html">
+	c82 [label=<<table title="net.ljcomputing.entity.AbstractPersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractPersistedEntity.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> AbstractPersistedEntity </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./AbstractPersistedEntity.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.entity.EntityRelationship<T extends net.ljcomputing.entity.PersistedEntity, S extends net.ljcomputing.entity.PersistedEntity>
-	c52 [label=<<table title="net.ljcomputing.entity.EntityRelationship" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./EntityRelationship.html">
+	c83 [label=<<table title="net.ljcomputing.entity.EntityRelationship" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./EntityRelationship.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> EntityRelationship&lt;T extends PersistedEntity, S extends PersistedEntity&gt; </td></tr>
 		</table></td></tr>
 		</table>>, URL="./EntityRelationship.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.entity.PersistedEntity
-	c54 [label=<<table title="net.ljcomputing.entity.PersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PersistedEntity.html">
+	c85 [label=<<table title="net.ljcomputing.entity.PersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PersistedEntity.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> PersistedEntity </td></tr>
 		</table></td></tr>
 		</table>>, URL="./PersistedEntity.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.domain.Node
-	c56 [label=<<table title="net.ljcomputing.domain.Node" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../domain/Node.html">
+	c87 [label=<<table title="net.ljcomputing.domain.Node" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../domain/Node.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Node </td></tr>
@@ -38,10 +46,12 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="../domain/Node.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.ljcomputing.entity.AbstractPersistedEntity implements net.ljcomputing.entity.PersistedEntity
-	c54:p -> c51:p [dir=back,arrowtail=empty,style=dashed];
+	c85:p -> c82:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.entity.EntityRelationship<T extends net.ljcomputing.entity.PersistedEntity, S extends net.ljcomputing.entity.PersistedEntity> implements net.ljcomputing.entity.PersistedEntity
-	c54:p -> c52:p [dir=back,arrowtail=empty,style=dashed];
+	c85:p -> c83:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.entity.PersistedEntity implements net.ljcomputing.domain.Node
-	c56:p -> c54:p [dir=back,arrowtail=empty,style=dashed];
+	c87:p -> c85:p [dir=back,arrowtail=empty,style=dashed];
+	// net.ljcomputing.repository.BaseRepository<T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable> DEPEND net.ljcomputing.entity.PersistedEntity
+	c81:p -> c85:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

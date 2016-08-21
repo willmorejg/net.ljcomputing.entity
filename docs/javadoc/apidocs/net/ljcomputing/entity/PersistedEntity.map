@@ -1,10 +1,12 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./AbstractPersistedEntity.html" title="net.ljcomputing.entity.AbstractPersistedEntity" alt="" coords="16,235,160,261"/>
-<area shape="rect" id="node1" href="./AbstractPersistedEntity.html" title="&lt;TABLE&gt;" alt="" coords="5,224,171,272"/>
-<area shape="rect" id="node2_1" href="./EntityRelationship.html" title="net.ljcomputing.entity.EntityRelationship" alt="" coords="205,227,619,269"/>
-<area shape="rect" id="node2" href="./EntityRelationship.html" title="&lt;TABLE&gt;" alt="" coords="195,222,629,274"/>
-<area shape="rect" id="node3_2" href="./PersistedEntity.html" title="net.ljcomputing.entity.PersistedEntity" alt="" coords="199,126,299,167"/>
-<area shape="rect" id="node3" href="./PersistedEntity.html" title="&lt;TABLE&gt;" alt="" coords="189,121,310,173"/>
-<area shape="rect" id="node4_3" href="../domain/Node.html" title="net.ljcomputing.domain.Node" alt="" coords="192,11,307,66"/>
-<area shape="rect" id="node4" href="../domain/Node.html" title="&lt;TABLE&gt;" alt="" coords="181,6,317,71"/>
+<area shape="rect" id="node1_0" href="../repository/BaseRepository.html" title="net.ljcomputing.repository.BaseRepository" alt="" coords="15,11,561,66"/>
+<area shape="rect" id="node1" href="../repository/BaseRepository.html" title="&lt;TABLE&gt;" alt="" coords="5,6,571,71"/>
+<area shape="rect" id="node4_1" href="./PersistedEntity.html" title="net.ljcomputing.entity.PersistedEntity" alt="" coords="426,126,526,167"/>
+<area shape="rect" id="node4" href="./PersistedEntity.html" title="&lt;TABLE&gt;" alt="" coords="415,121,537,173"/>
+<area shape="rect" id="node2_2" href="./AbstractPersistedEntity.html" title="net.ljcomputing.entity.AbstractPersistedEntity" alt="" coords="243,235,387,261"/>
+<area shape="rect" id="node2" href="./AbstractPersistedEntity.html" title="&lt;TABLE&gt;" alt="" coords="232,224,397,272"/>
+<area shape="rect" id="node3_3" href="./EntityRelationship.html" title="net.ljcomputing.entity.EntityRelationship" alt="" coords="432,227,845,269"/>
+<area shape="rect" id="node3" href="./EntityRelationship.html" title="&lt;TABLE&gt;" alt="" coords="421,222,856,274"/>
+<area shape="rect" id="node5_4" href="../domain/Node.html" title="net.ljcomputing.domain.Node" alt="" coords="607,11,721,66"/>
+<area shape="rect" id="node5" href="../domain/Node.html" title="&lt;TABLE&gt;" alt="" coords="596,6,732,71"/>
 </map>
