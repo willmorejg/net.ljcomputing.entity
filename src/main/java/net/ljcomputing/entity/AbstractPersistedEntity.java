@@ -18,19 +18,12 @@ package net.ljcomputing.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.validation.constraints.NotNull;
-
 /**
  * Abstract implementation of a persisted entity class.
  * 
  * @author James G. Willmore
  *
  */
-@MappedSuperclass
 public abstract class AbstractPersistedEntity extends AbstractDomain implements PersistedEntity {
 
   /** The Constant serialVersionUID. */
@@ -41,12 +34,19 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
 
   /** The modified time stamp. */
   private Long modifiedTs;
+  
+  /**
+   * Instantiates a new abstract persisted entity.
+   */
+  public AbstractPersistedEntity() {
+    super();
+    createdAt();
+    setModifiedTs(getCreatedTs());
+  }
 
   /**
    * @see net.ljcomputing.entity.PersistedEntity#getCreatedTs()
    */
-  @Column(name = "created_ts", nullable = false, unique = false, insertable = true, updatable = false)
-  @NotNull(message = "createdTS may not be null")
   @Override
   public Long getCreatedTs() {
     return createdTs;
@@ -63,7 +63,6 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
   /**
    * @see net.ljcomputing.entity.PersistedEntity#getModifiedTs()
    */
-  @Column(name = "modified_ts", nullable = true, unique = false, insertable = false, updatable = true)
   @Override
   public Long getModifiedTs() {
     return modifiedTs;
@@ -80,16 +79,22 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
   /**
    * Update the created time stamp with the current date.
    */
-  @PrePersist
-  private void createdAt() {
+  protected void createdAt() {
     this.createdTs = new Date().getTime();
   }
 
   /**
    * Update the modified time stamp with the current date.
    */
-  @PreUpdate
-  private void modifiedAt() {
+  protected void modifiedAt() {
     this.modifiedTs = new Date().getTime();
+  }
+
+  /**
+   * @see net.ljcomputing.entity.AbstractDomain#toString()
+   */
+  @Override
+  public String toString() {
+    return "AbstractPersistedEntity [" + super.toString() + ", createdTs=" + createdTs + ", modifiedTs=" + modifiedTs + "]";
   }
 }

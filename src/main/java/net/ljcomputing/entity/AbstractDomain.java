@@ -16,14 +16,7 @@
 
 package net.ljcomputing.entity;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-
-import org.hibernate.annotations.GenericGenerator;
+import java.util.UUID;
 
 import net.ljcomputing.domain.Node;
 
@@ -33,8 +26,6 @@ import net.ljcomputing.domain.Node;
  * @author James G. Willmore
  *
  */
-@MappedSuperclass
-@Access(AccessType.PROPERTY)
 public abstract class AbstractDomain implements Node {
 
   /** The Constant serialVersionUID. */
@@ -42,14 +33,17 @@ public abstract class AbstractDomain implements Node {
 
   /** The uuid. */
   private String uuid;
+  
+  /**
+   * Instantiates a new abstract domain.
+   */
+  public AbstractDomain() {
+    this.uuid = UUID.randomUUID().toString();
+  }
 
   /**
    * @see net.ljcomputing.domain.Domain#getUuid()
    */
-  @Id
-  @GeneratedValue(generator = "system-uuid")
-  @GenericGenerator(name = "system-uuid", strategy = "uuid")
-  @Column(name = "uuid", nullable = false, unique = true, length = 36, insertable = true, updatable = false)
   @Override
   public String getUuid() {
     return uuid;

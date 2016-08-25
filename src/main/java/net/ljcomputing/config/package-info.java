@@ -1,5 +1,5 @@
 /**
-           Copyright 2015, James G. Willmore
+           Copyright 2016, James G. Willmore
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,24 +14,10 @@
    limitations under the License.
  */
 
-package net.ljcomputing.repository;
-
-import java.io.Serializable;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.NoRepositoryBean;
-
-import net.ljcomputing.entity.PersistedEntity;
-
-
 /**
- * Base repository interface.
+ * Package containing the base persistence configuration.
  * 
  * @author James G. Willmore
  *
  */
-@NoRepositoryBean
-public interface BaseRepository<T extends PersistedEntity, ID extends Serializable>
-    extends JpaRepository<T, ID> {
-
-}
+package net.ljcomputing.config;

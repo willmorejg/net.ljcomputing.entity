@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Aug 24 20:03:35 EDT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0156-bf02-4fb0-000006dfbe50 
+on database directory /home/jim/git/net.ljcomputing.entity.git/net.ljcomputing.entity/db/test with class loader sun.misc.Launcher$AppClassLoader@23fc625e 
+Loaded from file:/home/jim/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_101-b13
+user.dir=/home/jim/git/net.ljcomputing.entity.git/net.ljcomputing.entity
+os.name=Linux
+os.arch=amd64
+os.version=4.4.0-24-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
