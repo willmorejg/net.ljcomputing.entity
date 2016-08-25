@@ -59,7 +59,7 @@ public class PersonMapperTest {
   
   private static void createTable(final Connection conn) throws SQLException {
     final Statement stmt = conn.createStatement();
-    stmt.executeUpdate("create table people (uuid varchar(64), name varchar(255), created_ts bigint, modified_ts bigint)");
+    stmt.executeUpdate("create table people (id integer not null generated always as identity (START WITH 1, INCREMENT BY 1), uuid varchar(64), name varchar(255), created_ts bigint, modified_ts bigint, CONSTRAINT people_pk PRIMARY KEY (id))");
     stmt.close();
   }
 
@@ -96,10 +96,12 @@ public class PersonMapperTest {
     final Person person = new Person();
     person.setName("jim");
     
+    LOGGER.debug("creating person: {}", person);
     personMapper.create(person);
-
-    people = personMapper.readAll();
-    LOGGER.debug("people: {}", people);
+    
+    for(Person p : personMapper.readAll()) {
+      LOGGER.debug("-- person {}", p);
+    }
   }
   //
   //  /**

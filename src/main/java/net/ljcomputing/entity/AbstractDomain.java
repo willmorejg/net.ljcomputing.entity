@@ -38,7 +38,18 @@ public abstract class AbstractDomain implements Node {
    * Instantiates a new abstract domain.
    */
   public AbstractDomain() {
-    this.uuid = UUID.randomUUID().toString();
+    super();
+    createUuid();
+  }
+  
+  /**
+   * Creates the UUID when needed.
+   */
+  private void createUuid() {
+    if(uuid == null) {
+      final UUID newUuid = UUID.randomUUID();
+      this.uuid = newUuid.toString();
+    }
   }
 
   /**

@@ -37,7 +37,7 @@ public interface MyBatisRepository<T extends PersistedEntity, ID extends Seriali
    * @param entity the entity
    * @return the id
    */
-  void create(T entity);
+  Integer create(T entity);
   
   /**
    * Read all persisted entities.

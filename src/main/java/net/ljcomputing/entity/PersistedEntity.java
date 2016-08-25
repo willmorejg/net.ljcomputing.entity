@@ -28,6 +28,21 @@ import net.ljcomputing.domain.Node;
  *
  */
 public interface PersistedEntity extends Serializable, Node {
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  Integer getId();
+
+  /**
+   * Sets the id.
+   *
+   * @param id the new id
+   */
+  void setId(Integer id);
+
   /**
    * Gets the created time stamp as a long value.
    *

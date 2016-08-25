@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.ljcomputing.repository.MyBatisRepository<T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable>
-	c0 [label=<<table title="net.ljcomputing.repository.MyBatisRepository" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MyBatisRepository.html">
+	c10 [label=<<table title="net.ljcomputing.repository.MyBatisRepository" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MyBatisRepository.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> MyBatisRepository&lt;T extends PersistedEntity, ID extends Serializable&gt; </td></tr>

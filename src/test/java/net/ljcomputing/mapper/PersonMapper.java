@@ -22,6 +22,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import net.ljcomputing.domain.Person;
@@ -41,12 +42,13 @@ public interface PersonMapper extends MyBatisRepository<Person, String> {
    */
   @Insert({
       "insert into people (uuid, name, created_ts, modified_ts) values (#{uuid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createdTs,jdbcType=BIGINT}, #{modifiedTs,jdbcType=BIGINT})" })
-  void create(Person entity);
+  @SelectKey(statement="select max(id) as id from people", keyProperty="id", keyColumn="id", before=false, resultType=Integer.class)
+  Integer create(Person entity);
 
   /**
    * @see net.ljcomputing.repository.MyBatisRepository#readAll()
    */
-  @Select({ "select uuid, name, created_ts, modified_ts from people" })
+  @Select({ "select id, uuid, name, created_ts, modified_ts from people" })
   List<Person> readAll();
 
   /**
@@ -58,7 +60,7 @@ public interface PersonMapper extends MyBatisRepository<Person, String> {
    * @see net.ljcomputing.repository.MyBatisRepository#update(net.ljcomputing.entity.PersistedEntity)
    */
   @Update({
-      "update people set name = #{name,jdbcType=VARCHAR}, modified_ts = #{modifiedTs,jdbcType=BIGINT} where uuid = #{name,jdbcType=VARCHAR}" })
+      "update people set name = #{name,jdbcType=VARCHAR}, modified_ts = #{modifiedTs,jdbcType=BIGINT} where id = #{id,jdbcType=INTEGER}" })
   void update(Person entity);
 
   /**
