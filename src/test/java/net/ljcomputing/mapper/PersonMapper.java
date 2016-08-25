@@ -35,7 +35,7 @@ import net.ljcomputing.repository.MyBatisRepository;
  *
  */
 @Mapper
-public interface PersonMapper extends MyBatisRepository<Person, String> {
+public interface PersonMapper extends MyBatisRepository<Person, Integer> {
 
   /**
    * @see net.ljcomputing.repository.MyBatisRepository#create(net.ljcomputing.entity.PersistedEntity)
@@ -54,7 +54,7 @@ public interface PersonMapper extends MyBatisRepository<Person, String> {
   /**
    * @see net.ljcomputing.repository.MyBatisRepository#readById(java.io.Serializable)
    */
-  Person readById(String uuid);
+  Person readById(Integer uuid);
 
   /**
    * @see net.ljcomputing.repository.MyBatisRepository#update(net.ljcomputing.entity.PersistedEntity)
@@ -72,5 +72,5 @@ public interface PersonMapper extends MyBatisRepository<Person, String> {
    * @see net.ljcomputing.repository.MyBatisRepository#delete(java.io.Serializable)
    */
   @Delete({ "delete from people where id = #{id,jdbcType=INTEGER}" })
-  void delete(String uuid);
+  void delete(Integer uuid);
 }
