@@ -44,7 +44,7 @@ public class CreateEntityAspect {
    *
    * @param entity the entity
    */
-  @Before("execution(* net.ljcomputing.mapper..*.create(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
+  @Before("execution(* net.ljcomputing.mapper.MyBatisMapper+.create(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
   public void createEntity(final PersistedEntity entity) {
     createUuid(entity);
     modifiedAt(entity);
@@ -55,7 +55,7 @@ public class CreateEntityAspect {
    *
    * @param entity the entity
    */
-  @Before("execution(* net.ljcomputing.mapper..*.update(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
+  @Before("execution(* net.ljcomputing.mapper.MyBatisMapper+.update(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
   public void updateEntity(final PersistedEntity entity) {
     modifiedAt(entity);
   }
