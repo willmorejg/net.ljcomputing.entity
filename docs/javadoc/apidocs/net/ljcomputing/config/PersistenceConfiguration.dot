@@ -15,19 +15,19 @@ digraph G {
 <tr><td align="center" balign="center"> PersistenceConfiguration </td></tr>
 		</table></td></tr>
 		</table>>, URL="./PersistenceConfiguration.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.ljcomputing.config.PersistenceConfiguration DEPEND org.springframework.jdbc.datasource.DataSourceTransactionManager
-	c175:p -> c184:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.ljcomputing.config.PersistenceConfiguration DEPEND org.apache.ibatis.session.SqlSessionFactory
+	c175:p -> c179:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.ljcomputing.config.PersistenceConfiguration DEPEND org.springframework.jdbc.datasource.DataSourceTransactionManager
 	c175:p -> c186:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// org.springframework.jdbc.datasource.DataSourceTransactionManager
-	c184 [label=<<table title="org.springframework.jdbc.datasource.DataSourceTransactionManager" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c186 [label=<<table title="org.springframework.jdbc.datasource.DataSourceTransactionManager" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DataSourceTransactionManager </td></tr>
 <tr><td align="center" balign="center"><font point-size="7.0"> org.springframework.jdbc.datasource </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// org.apache.ibatis.session.SqlSessionFactory
-	c186 [label=<<table title="org.apache.ibatis.session.SqlSessionFactory" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c179 [label=<<table title="org.apache.ibatis.session.SqlSessionFactory" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> SqlSessionFactory </td></tr>

@@ -107,7 +107,9 @@ public class PersistenceConfiguration {
    */
   @Bean
   public SqlSessionFactory sqlSessionFactory() throws Exception {
-    final org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+    final org.apache.ibatis.session.Configuration configuration = 
+        new org.apache.ibatis.session.Configuration();
+    
     configuration.setMapUnderscoreToCamelCase(true);
 
     final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();

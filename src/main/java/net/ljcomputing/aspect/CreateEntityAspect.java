@@ -33,28 +33,30 @@ import net.ljcomputing.entity.PersistedEntity;
 @Aspect
 @Component
 public class CreateEntityAspect {
-  
+
   /**
    * Modify the entity prior to creation.
    *
    * @param entity the entity
    */
-  @Before("execution(* net.ljcomputing.mapper.MyBatisMapper+.create(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
+  @Before("execution(* net.ljcomputing.mapper.MyBatisMapper+.create"
+      + "(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
   public void createEntity(final PersistedEntity entity) {
     createUuid(entity);
     modifiedAt(entity);
   }
-  
+
   /**
    * Modify the entity prior to update.
    *
    * @param entity the entity
    */
-  @Before("execution(* net.ljcomputing.mapper.MyBatisMapper+.update(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
+  @Before("execution(* net.ljcomputing.mapper.MyBatisMapper+.update"
+      + "(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
   public void updateEntity(final PersistedEntity entity) {
     modifiedAt(entity);
   }
-  
+
   /**
    * Update entity UUID.
    *
@@ -63,7 +65,7 @@ public class CreateEntityAspect {
   private void createUuid(final PersistedEntity entity) {
     entity.createUuid();
   }
-  
+
   /**
    * Update entity modified time stamp.
    *

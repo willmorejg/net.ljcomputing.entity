@@ -93,7 +93,7 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
    */
   @Override
   public void modifiedAt() {
-    if(createdTs == null) {
+    if (createdTs == null) {
       createdTs = new Date().getTime();
     }
 
