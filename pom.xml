@@ -89,6 +89,11 @@
 			<scope>test</scope>
 		</dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -199,6 +204,7 @@
 				</executions>
 				<configuration>
 					<reportOutputDirectory>${basedir}/docs/javadoc</reportOutputDirectory>
+<!-- 					<stylesheetfile>${basedir}/css/javadoc-style.css</stylesheetfile> -->
 					<detectLinks>true</detectLinks>
 					<show>private</show>
 					<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>

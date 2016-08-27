@@ -26,51 +26,57 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import net.ljcomputing.domain.Person;
-import net.ljcomputing.repository.MyBatisRepository;
+import net.ljcomputing.mapper.MyBatisMapper;
 
 /**
- * MyBatis Person Mapper.
+ * MyBatis Person Mapper
  * 
  * @author James G. Willmore
  *
  */
 @Mapper
-public interface PersonMapper extends MyBatisRepository<Person, Integer> {
+public interface PersonMapper extends MyBatisMapper<Person, Integer> {
 
   /**
-   * @see net.ljcomputing.repository.MyBatisRepository#create(net.ljcomputing.entity.PersistedEntity)
+   * @see net.ljcomputing.mapper.MyBatisMapper#create(net.ljcomputing.entity.PersistedEntity)
    */
   @Insert({
       "insert into people (uuid, name, created_ts, modified_ts) values (#{uuid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createdTs,jdbcType=BIGINT}, #{modifiedTs,jdbcType=BIGINT})" })
-  @SelectKey(statement="select max(id) as id from people", keyProperty="id", keyColumn="id", before=false, resultType=Integer.class)
+  @SelectKey(statement = "select max(id) as id from people", keyProperty = "id", keyColumn = "id", before = false, resultType = Integer.class)
   Integer create(Person entity);
 
   /**
-   * @see net.ljcomputing.repository.MyBatisRepository#readAll()
+   * @see net.ljcomputing.mapper.MyBatisMapper#readAll()
    */
   @Select({ "select id, uuid, name, created_ts, modified_ts from people" })
   List<Person> readAll();
 
   /**
-   * @see net.ljcomputing.repository.MyBatisRepository#readById(java.io.Serializable)
+   * Read by id.
+   *
+   * @param id the id
+   * @return the person
+   * @see net.ljcomputing.mapper.MyBatisMapper#readById(java.io.Serializable)
    */
-  Person readById(Integer uuid);
+  @Select({
+      "select id, uuid, name, created_ts, modified_ts from people where id = #{id,jdbcType=INTEGER}" })
+  Person readById(Integer id);
 
   /**
-   * @see net.ljcomputing.repository.MyBatisRepository#update(net.ljcomputing.entity.PersistedEntity)
+   * @see net.ljcomputing.mapper.MyBatisMapper#update(net.ljcomputing.entity.PersistedEntity)
    */
   @Update({
       "update people set name = #{name,jdbcType=VARCHAR}, modified_ts = #{modifiedTs,jdbcType=BIGINT} where id = #{id,jdbcType=INTEGER}" })
   void update(Person entity);
 
   /**
-   * @see net.ljcomputing.repository.MyBatisRepository#delete(net.ljcomputing.entity.PersistedEntity)
+   * @see net.ljcomputing.mapper.MyBatisMapper#delete(net.ljcomputing.entity.PersistedEntity)
    */
   void delete(Person entity);
 
   /**
-   * @see net.ljcomputing.repository.MyBatisRepository#delete(java.io.Serializable)
+   * @see net.ljcomputing.mapper.MyBatisMapper#delete(java.io.Serializable)
    */
   @Delete({ "delete from people where id = #{id,jdbcType=INTEGER}" })
-  void delete(Integer uuid);
+  void delete(Integer id);
 }

@@ -33,23 +33,12 @@ public abstract class AbstractDomain implements Node {
 
   /** The uuid. */
   private String uuid;
-  
+
   /**
    * Instantiates a new abstract domain.
    */
   public AbstractDomain() {
     super();
-    createUuid();
-  }
-  
-  /**
-   * Creates the UUID when needed.
-   */
-  private void createUuid() {
-    if(uuid == null) {
-      final UUID newUuid = UUID.randomUUID();
-      this.uuid = newUuid.toString();
-    }
   }
 
   /**
@@ -66,6 +55,17 @@ public abstract class AbstractDomain implements Node {
   @Override
   public void setUuid(final String uuid) {
     this.uuid = uuid;
+  }
+
+  /**
+   * @see net.ljcomputing.domain.Domain#createUuid()
+   */
+  @Override
+  public void createUuid() {
+    if (uuid == null) {
+      final UUID newUuid = UUID.randomUUID();
+      uuid = newUuid.toString();
+    }
   }
 
   /**

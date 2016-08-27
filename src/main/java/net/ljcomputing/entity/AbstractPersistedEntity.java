@@ -28,7 +28,7 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = -5596912472711861850L;
-  
+
   /** The id. */
   private Integer id;
 
@@ -37,14 +37,12 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
 
   /** The modified time stamp. */
   private Long modifiedTs;
-  
+
   /**
    * Instantiates a new abstract persisted entity.
    */
   public AbstractPersistedEntity() {
     super();
-    createdAt();
-    setModifiedTs(getCreatedTs());
   }
 
   /**
@@ -61,7 +59,7 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
    *
    * @param id the new id
    */
-  public void setId(Integer id) {
+  public void setId(final Integer id) {
     this.id = id;
   }
 
@@ -98,17 +96,15 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
   }
 
   /**
-   * Update the created time stamp with the current date.
+   * @see net.ljcomputing.entity.PersistedEntity#modifiedAt()
    */
-  protected void createdAt() {
-    this.createdTs = new Date().getTime();
-  }
+  @Override
+  public void modifiedAt() {
+    if(createdTs == null) {
+      createdTs = new Date().getTime();
+    }
 
-  /**
-   * Update the modified time stamp with the current date.
-   */
-  protected void modifiedAt() {
-    this.modifiedTs = new Date().getTime();
+    modifiedTs = new Date().getTime();
   }
 
   /**
@@ -116,6 +112,7 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
    */
   @Override
   public String toString() {
-    return "AbstractPersistedEntity [" + super.toString() + ", id=" + id + ", createdTs=" + createdTs + ", modifiedTs=" + modifiedTs + "]";
+    return "AbstractPersistedEntity [" + super.toString() + ", id=" + id + ", createdTs="
+        + createdTs + ", modifiedTs=" + modifiedTs + "]";
   }
 }

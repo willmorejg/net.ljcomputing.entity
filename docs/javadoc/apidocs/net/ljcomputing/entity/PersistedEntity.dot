@@ -9,49 +9,68 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
-	// net.ljcomputing.repository.MyBatisRepository<T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable>
-	c126 [label=<<table title="net.ljcomputing.repository.MyBatisRepository" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../repository/MyBatisRepository.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
-<tr><td align="center" balign="center"> MyBatisRepository&lt;T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable&gt; </td></tr>
-<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.repository </font></td></tr>
-		</table></td></tr>
-		</table>>, URL="../repository/MyBatisRepository.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.entity.AbstractPersistedEntity
-	c127 [label=<<table title="net.ljcomputing.entity.AbstractPersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractPersistedEntity.html">
+	c158 [label=<<table title="net.ljcomputing.entity.AbstractPersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractPersistedEntity.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> AbstractPersistedEntity </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./AbstractPersistedEntity.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.entity.EntityRelationship<T extends net.ljcomputing.entity.PersistedEntity, S extends net.ljcomputing.entity.PersistedEntity>
-	c128 [label=<<table title="net.ljcomputing.entity.EntityRelationship" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./EntityRelationship.html">
+	c159 [label=<<table title="net.ljcomputing.entity.EntityRelationship" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./EntityRelationship.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> EntityRelationship&lt;T extends PersistedEntity, S extends PersistedEntity&gt; </td></tr>
 		</table></td></tr>
 		</table>>, URL="./EntityRelationship.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.entity.PersistedEntity
-	c130 [label=<<table title="net.ljcomputing.entity.PersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PersistedEntity.html">
+	c161 [label=<<table title="net.ljcomputing.entity.PersistedEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PersistedEntity.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> PersistedEntity </td></tr>
 		</table></td></tr>
 		</table>>, URL="./PersistedEntity.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.domain.Node
-	c132 [label=<<table title="net.ljcomputing.domain.Node" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../domain/Node.html">
+	c163 [label=<<table title="net.ljcomputing.domain.Node" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../domain/Node.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Node </td></tr>
 <tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.domain </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="../domain/Node.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.ljcomputing.service.MyBatisMapperService<T extends net.ljcomputing.entity.PersistedEntity, V extends java.io.Serializable>
+	c164 [label=<<table title="net.ljcomputing.service.MyBatisMapperService" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../service/MyBatisMapperService.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
+<tr><td align="center" balign="center"> MyBatisMapperService&lt;T extends net.ljcomputing.entity.PersistedEntity, V extends java.io.Serializable&gt; </td></tr>
+<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.service </font></td></tr>
+		</table></td></tr>
+		</table>>, URL="../service/MyBatisMapperService.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.ljcomputing.mapper.MyBatisMapper<T extends net.ljcomputing.entity.PersistedEntity, V extends java.io.Serializable>
+	c166 [label=<<table title="net.ljcomputing.mapper.MyBatisMapper" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../mapper/MyBatisMapper.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
+<tr><td align="center" balign="center"> MyBatisMapper&lt;T extends net.ljcomputing.entity.PersistedEntity, V extends java.io.Serializable&gt; </td></tr>
+<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.mapper </font></td></tr>
+		</table></td></tr>
+		</table>>, URL="../mapper/MyBatisMapper.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.ljcomputing.aspect.CreateEntityAspect
+	c167 [label=<<table title="net.ljcomputing.aspect.CreateEntityAspect" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../aspect/CreateEntityAspect.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> CreateEntityAspect </td></tr>
+<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.aspect </font></td></tr>
+		</table></td></tr>
+		</table>>, URL="../aspect/CreateEntityAspect.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.ljcomputing.entity.AbstractPersistedEntity implements net.ljcomputing.entity.PersistedEntity
-	c130:p -> c127:p [dir=back,arrowtail=empty,style=dashed];
+	c161:p -> c158:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.entity.EntityRelationship<T extends net.ljcomputing.entity.PersistedEntity, S extends net.ljcomputing.entity.PersistedEntity> implements net.ljcomputing.entity.PersistedEntity
-	c130:p -> c128:p [dir=back,arrowtail=empty,style=dashed];
+	c161:p -> c159:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.entity.PersistedEntity implements net.ljcomputing.domain.Node
-	c132:p -> c130:p [dir=back,arrowtail=empty,style=dashed];
-	// net.ljcomputing.repository.MyBatisRepository<T extends net.ljcomputing.entity.PersistedEntity, ID extends java.io.Serializable> DEPEND net.ljcomputing.entity.PersistedEntity
-	c126:p -> c130:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c163:p -> c161:p [dir=back,arrowtail=empty,style=dashed];
+	// net.ljcomputing.service.MyBatisMapperService<T extends net.ljcomputing.entity.PersistedEntity, V extends java.io.Serializable> DEPEND net.ljcomputing.entity.PersistedEntity
+	c164:p -> c161:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.ljcomputing.mapper.MyBatisMapper<T extends net.ljcomputing.entity.PersistedEntity, V extends java.io.Serializable> DEPEND net.ljcomputing.entity.PersistedEntity
+	c166:p -> c161:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.ljcomputing.aspect.CreateEntityAspect DEPEND net.ljcomputing.entity.PersistedEntity
+	c167:p -> c161:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

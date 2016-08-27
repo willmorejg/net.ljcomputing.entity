@@ -29,7 +29,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -42,7 +44,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  */
 @Configuration
+@ComponentScan(basePackages = { "net.ljcomputing" })
 @PropertySource("classpath:datasource.properties")
+@EnableAspectJAutoProxy
 @MapperScan("net.ljcomputing.mapper")
 @EnableTransactionManagement
 public class PersistenceConfiguration {
@@ -108,9 +112,13 @@ public class PersistenceConfiguration {
    */
   @Bean
   public SqlSessionFactory sqlSessionFactory() throws Exception {
+    final org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+    configuration.setMapUnderscoreToCamelCase(true);
+
     final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 
     sessionFactory.setDataSource(dataSource());
+    sessionFactory.setConfiguration(configuration);
     sessionFactory.setTypeAliasesPackage("net.ljcomputing.repository.entity");
 
     final SqlSessionFactory factory = sessionFactory.getObject();

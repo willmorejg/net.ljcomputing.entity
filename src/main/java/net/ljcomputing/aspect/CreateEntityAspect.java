@@ -1,0 +1,80 @@
+/**
+           Copyright 2016, James G. Willmore
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
+package net.ljcomputing.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import net.ljcomputing.entity.PersistedEntity;
+
+/**
+ * Aspect that modified the entity prior to insert. 
+ * Attributes that are modified are the created and 
+ * modified time stamps.
+ * 
+ * @author James G. Willmore
+ *
+ */
+@Aspect
+@Component
+public class CreateEntityAspect {
+  
+  /** The SLF4J Logger. */
+  private static final Logger LOGGER = LoggerFactory.getLogger(CreateEntityAspect.class);
+  
+  /**
+   * Modify the entity prior to creation.
+   *
+   * @param entity the entity
+   */
+  @Before("execution(* net.ljcomputing.mapper..*.create(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
+  public void createEntity(final PersistedEntity entity) {
+    createUuid(entity);
+    modifiedAt(entity);
+  }
+  
+  /**
+   * Modify the entity prior to update.
+   *
+   * @param entity the entity
+   */
+  @Before("execution(* net.ljcomputing.mapper..*.update(net.ljcomputing.entity.PersistedEntity+)) && args(entity)")
+  public void updateEntity(final PersistedEntity entity) {
+    modifiedAt(entity);
+  }
+  
+  /**
+   * Update entity UUID.
+   *
+   * @param entity the entity
+   */
+  private void createUuid(final PersistedEntity entity) {
+    entity.createUuid();
+  }
+  
+  /**
+   * Update entity modified time stamp.
+   *
+   * @param entity the entity
+   */
+  private void modifiedAt(final PersistedEntity entity) {
+    entity.modifiedAt();
+  }
+}

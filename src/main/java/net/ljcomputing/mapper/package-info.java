@@ -15,7 +15,7 @@
  */
 
 /**
- * MyBatis Mapper interfaces.
+ * Package containing common mapper functionality.
  * 
  * @author James G. Willmore
  *

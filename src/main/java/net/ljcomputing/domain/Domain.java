@@ -38,4 +38,9 @@ public interface Domain extends Serializable {
    * @param uuid the new uuid
    */
   void setUuid(String uuid);
+  
+  /**
+   * Creates the UUID when needed.
+   */
+  public void createUuid();
 }

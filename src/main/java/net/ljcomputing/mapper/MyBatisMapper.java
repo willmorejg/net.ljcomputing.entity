@@ -14,64 +14,63 @@
    limitations under the License.
  */
 
-package net.ljcomputing.repository;
+package net.ljcomputing.mapper;
 
 import java.io.Serializable;
 import java.util.List;
 
 import net.ljcomputing.entity.PersistedEntity;
 
-
 /**
- * MyBatis repository interface.
- *
+ * MyBatis mapper interface
+ * 
  * @author James G. Willmore
  * @param <T> the persisted entity generic type
- * @param <ID> the ID of the persisted entity generic type
+ * @param <V> the id of the persisted entity generic type
  */
-public interface MyBatisRepository<T extends PersistedEntity, ID extends Serializable> {
-  
+public interface MyBatisMapper<T extends PersistedEntity, V extends Serializable> {
+
   /**
    * Creates the persisted entity.
    *
    * @param entity the entity
    * @return the id
    */
-  Integer create(T entity);
-  
+  V create(T entity);
+
   /**
    * Read all persisted entities.
    *
    * @return the list
    */
   List<T> readAll();
-  
+
   /**
-   * Read the persisted entity with the given UUID.
+   * Read the persisted entity with the given id.
    *
-   * @param uuid the UUID
+   * @param id the id
    * @return the t
    */
-  T readById(ID uuid);
-  
+  T readById(V id);
+
   /**
    * Update the given persisted entity.
    *
    * @param entity the entity
    */
   void update(T entity);
-  
+
   /**
    * Delete the given entity.
    *
    * @param entity the entity
    */
   void delete(T entity);
-  
+
   /**
-   * Delete the given entity by the given UUID.
+   * Delete the given entity by the given id.
    *
-   * @param uuid the uuid
+   * @param id the id
    */
-  void delete(ID uuid);
+  void delete(V id);
 }

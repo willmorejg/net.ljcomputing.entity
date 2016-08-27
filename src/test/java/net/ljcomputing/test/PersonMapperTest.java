@@ -48,7 +48,6 @@ import net.ljcomputing.mapper.PersonMapper;
 public class PersonMapperTest {
 
   /** The SLF4J Logger. */
-  @SuppressWarnings("unused")
   private static final Logger LOGGER = LoggerFactory.getLogger(PersonMapperTest.class);
 
   @Autowired
@@ -59,7 +58,8 @@ public class PersonMapperTest {
   
   private static void createTable(final Connection conn) throws SQLException {
     final Statement stmt = conn.createStatement();
-    stmt.executeUpdate("create table people (id integer not null generated always as identity (START WITH 1, INCREMENT BY 1), uuid varchar(64), name varchar(255), created_ts bigint, modified_ts bigint, CONSTRAINT people_pk PRIMARY KEY (id))");
+    stmt.executeUpdate("create table people (id integer not null generated always as identity (START WITH 1, INCREMENT BY 1), "
+        + "uuid varchar(64), name varchar(255), created_ts bigint, modified_ts bigint, CONSTRAINT people_pk PRIMARY KEY (id))");
     stmt.close();
   }
 
@@ -101,55 +101,11 @@ public class PersonMapperTest {
     
     for(Person p : personMapper.readAll()) {
       LOGGER.debug("-- person {}", p);
+      p.setName("JOE");
+      LOGGER.debug("-- NEW person {}", p);
+      personMapper.update(p);
+      LOGGER.debug("-->> UPDATED: {}", personMapper.readById(p.getId()));
+      personMapper.delete(p);
     }
   }
-  //
-  //  /**
-  //   * Test method for {@link net.ljcomputing.mapper.PersonMapper#create(net.ljcomputing.domain.Person)}.
-  //   */
-  //  @Test
-  //  public void testCreatePerson() {
-  //    fail("Not yet implemented");
-  //  }
-  //
-  //  /**
-  //   * Test method for {@link net.ljcomputing.mapper.PersonMapper#readAll()}.
-  //   */
-  //  @Test
-  //  public void testReadAll() {
-  //    fail("Not yet implemented");
-  //  }
-  //
-  //  /**
-  //   * Test method for {@link net.ljcomputing.mapper.PersonMapper#readById(java.lang.String)}.
-  //   */
-  //  @Test
-  //  public void testReadByIdString() {
-  //    fail("Not yet implemented");
-  //  }
-  //
-  //  /**
-  //   * Test method for {@link net.ljcomputing.mapper.PersonMapper#update(net.ljcomputing.domain.Person)}.
-  //   */
-  //  @Test
-  //  public void testUpdatePerson() {
-  //    fail("Not yet implemented");
-  //  }
-  //
-  //  /**
-  //   * Test method for {@link net.ljcomputing.mapper.PersonMapper#delete(net.ljcomputing.domain.Person)}.
-  //   */
-  //  @Test
-  //  public void testDeletePerson() {
-  //    fail("Not yet implemented");
-  //  }
-  //
-  //  /**
-  //   * Test method for {@link net.ljcomputing.mapper.PersonMapper#delete(java.lang.String)}.
-  //   */
-  //  @Test
-  //  public void testDeleteString() {
-  //    fail("Not yet implemented");
-  //  }
-
 }

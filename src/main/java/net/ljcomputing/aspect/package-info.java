@@ -15,9 +15,9 @@
  */
 
 /**
- * Package containing common repository functionality implementations.
+ * Package containing Aspects required by the framework.
  * 
  * @author James G. Willmore
  *
  */
-package net.ljcomputing.repository.impl;
+package net.ljcomputing.aspect;

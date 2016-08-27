@@ -15,9 +15,9 @@
  */
 
 /**
- * Package containing common repository functionality.
+ * Package containing service interfaces.
  * 
  * @author James G. Willmore
  *
  */
-package net.ljcomputing.repository;
+package net.ljcomputing.service;

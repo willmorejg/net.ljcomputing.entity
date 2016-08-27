@@ -1,0 +1,89 @@
+/**
+           Copyright 2016, James G. Willmore
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
+package net.ljcomputing.interceptor;
+
+import java.sql.PreparedStatement;
+import java.util.Properties;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.ibatis.executor.parameter.ParameterHandler;
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Invocation;
+import org.apache.ibatis.plugin.Plugin;
+import org.apache.ibatis.plugin.Signature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import net.ljcomputing.entity.PersistedEntity;
+
+/**
+ * @author James G. Willmore
+ *
+ */
+@Intercepts({
+  @Signature(type = ParameterHandler.class, method = "setParameters", args = { PreparedStatement.class })
+//  @Signature(type = Executor.class, method = "commit", args = { boolean.class })
+//    ,
+//    @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class, Integer.class }) 
+})
+public class MyBatisInterceptor implements Interceptor {
+
+  /** The SLF4J Logger. */
+  private static final Logger LOGGER = LoggerFactory.getLogger(MyBatisInterceptor.class);
+  
+  public MyBatisInterceptor() {
+    LOGGER.debug("ok");
+  }
+
+  /**
+   * @see org.apache.ibatis.plugin.Interceptor#intercept(org.apache.ibatis.plugin.Invocation)
+   */
+  @Override
+  public Object intercept(Invocation invocation) throws Throwable {
+    LOGGER.warn("intercept(invocation)");
+    Object result = invocation.proceed();
+    return result;
+  }
+
+  /**
+   * @see org.apache.ibatis.plugin.Interceptor#plugin(java.lang.Object)
+   */
+  @Override
+  public Object plugin(Object target) {
+    LOGGER.warn("plugin(target)");
+    LOGGER.info("target: {}", ToStringBuilder.reflectionToString(target, ToStringStyle.MULTI_LINE_STYLE));
+    if(target instanceof org.apache.ibatis.scripting.defaults.DefaultParameterHandler) {
+      LOGGER.info("---->>>>target: {}", ToStringBuilder.reflectionToString(
+          ((org.apache.ibatis.scripting.defaults.DefaultParameterHandler)target).getParameterObject(), ToStringStyle.MULTI_LINE_STYLE));
+      if(((org.apache.ibatis.scripting.defaults.DefaultParameterHandler)target).getParameterObject() instanceof net.ljcomputing.entity.PersistedEntity) {
+        PersistedEntity entity = (PersistedEntity)((org.apache.ibatis.scripting.defaults.DefaultParameterHandler)target).getParameterObject();
+        LOGGER.info("====---->>>>target: {}", ToStringBuilder.reflectionToString(entity, ToStringStyle.MULTI_LINE_STYLE));
+      }
+    }
+    return Plugin.wrap(target, this);
+  }
+
+  /**
+   * @see org.apache.ibatis.plugin.Interceptor#setProperties(java.util.Properties)
+   */
+  @Override
+  public void setProperties(Properties properties) {
+    LOGGER.warn("setProperties()");
+  }
+}
