@@ -39,13 +39,6 @@ public abstract class AbstractPersistedEntity extends AbstractDomain implements 
   private Long modifiedTs;
 
   /**
-   * Instantiates a new abstract persisted entity.
-   */
-  public AbstractPersistedEntity() {
-    super();
-  }
-
-  /**
    * Gets the id.
    *
    * @return the id

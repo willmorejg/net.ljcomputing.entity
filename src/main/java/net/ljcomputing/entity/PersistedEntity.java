@@ -74,5 +74,5 @@ public interface PersistedEntity extends Serializable, Node {
   /**
    * Update the modified time stamp with the current date.
    */
-  public void modifiedAt();
+  void modifiedAt();
 }

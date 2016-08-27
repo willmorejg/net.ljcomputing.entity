@@ -52,24 +52,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class PersistenceConfiguration {
 
   /** The SLF4J Logger. */
-  @SuppressWarnings("unused")
   private static final Logger LOGGER = LoggerFactory.getLogger(PersistenceConfiguration.class);
-
-  /** The driver class. */
-  @Value("${dataSource.driver.class}")
-  private String driverClassname;
 
   /** The url. */
   @Value("${dataSource.url}")
-  private String url;
+  private transient String url;
 
   /** The username. */
   @Value("${dataSource.username}")
-  private String username;
+  private transient String username;
 
   /** The password. */
   @Value("${dataSource.password}")
-  private String password;
+  private transient String password;
 
   /**
    * Data source.
@@ -88,7 +83,7 @@ public class PersistenceConfiguration {
       dataSource.setUsername(username);
       dataSource.setPassword(password);
     } catch (SQLException exception) {
-      exception.printStackTrace();
+      LOGGER.error("Could not create data source:", exception);
     }
 
     return dataSource;

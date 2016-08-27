@@ -42,5 +42,5 @@ public interface Domain extends Serializable {
   /**
    * Creates the UUID when needed.
    */
-  public void createUuid();
+  void createUuid();
 }
