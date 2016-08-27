@@ -39,6 +39,8 @@ import net.ljcomputing.domain.Person;
 import net.ljcomputing.mapper.PersonMapper;
 
 /**
+ * Person mapper test.
+ * 
  * @author James G. Willmore
  *
  */
@@ -50,12 +52,20 @@ public class PersonMapperTest {
   /** The SLF4J Logger. */
   private static final Logger LOGGER = LoggerFactory.getLogger(PersonMapperTest.class);
 
+  /** The data source. */
   @Autowired
-  private DataSource dataSource;
+  private transient DataSource dataSource;
 
+  /** The person mapper. */
   @Autowired
-  private PersonMapper personMapper;
+  private transient PersonMapper personMapper;
   
+  /**
+   * Creates the table.
+   *
+   * @param conn the conn
+   * @throws SQLException the SQL exception
+   */
   private static void createTable(final Connection conn) throws SQLException {
     final Statement stmt = conn.createStatement();
     stmt.executeUpdate("create table people (id integer not null generated always as identity (START WITH 1, INCREMENT BY 1), "
@@ -63,8 +73,10 @@ public class PersonMapperTest {
     stmt.close();
   }
 
-  private boolean validateDataSource() {
-    boolean result = false;
+  /**
+   * Validate data source.
+   */
+  private void validateDataSource() {
     Connection connection = null;
     
     try {
@@ -81,16 +93,17 @@ public class PersonMapperTest {
         }
       }
     }
-
-    return result;
   }
 
+  /**
+   * Test.
+   */
   @Test
   public void test() {
     assertNotNull("Person Mapper is null", personMapper);
     validateDataSource();
 
-    List<Person> people = personMapper.readAll();
+    final List<Person> people = personMapper.readAll();
     LOGGER.debug("people: {}", people);
     
     final Person person = new Person();
@@ -99,7 +112,7 @@ public class PersonMapperTest {
     LOGGER.debug("creating person: {}", person);
     personMapper.create(person);
     
-    for(Person p : personMapper.readAll()) {
+    for(final Person p : personMapper.readAll()) {
       LOGGER.debug("-- person {}", p);
       p.setName("JOE");
       LOGGER.debug("-- NEW person {}", p);

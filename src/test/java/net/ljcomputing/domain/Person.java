@@ -30,10 +30,6 @@ public class Person extends AbstractPersistedEntity implements PersistedEntity  
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 7177292967557438899L;
   
-  public Person() {
-    super();
-  }
-  
   /** The name. */
   private String name;
   
@@ -51,7 +47,7 @@ public class Person extends AbstractPersistedEntity implements PersistedEntity  
    *
    * @param name the new name
    */
-  public void setName(String name) {
+  public void setName(final String name) {
     this.name = name;
   }
 

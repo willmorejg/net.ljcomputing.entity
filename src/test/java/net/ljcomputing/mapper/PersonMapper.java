@@ -26,7 +26,6 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import net.ljcomputing.domain.Person;
-import net.ljcomputing.mapper.MyBatisMapper;
 
 /**
  * MyBatis Person Mapper
